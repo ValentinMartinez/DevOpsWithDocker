@@ -1,0 +1,13 @@
+version: '3.5'
+
+services:
+  image-builder:
+    image: imagebuilder
+    environment:
+      - GITHUB_REPO=https://github.com/docker-hy/ml-kurkkumopo-frontend.git # repo to clone
+      - DOCKER_IMAGE_NAME=test # name you want to give to the image
+      - DOCKERHUB_USER=ABC  # username to publish the image
+      - DOCKERHUB_PASSWORD=123  # password of dockerhub account
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    container_name: imagebuilder
